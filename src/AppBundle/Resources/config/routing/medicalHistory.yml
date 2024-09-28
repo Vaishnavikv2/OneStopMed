@@ -1,0 +1,41 @@
+####################################################################################
+# ROUTING PARA LISTAR LAS HISTORIAS CLÍNICAS
+medical_history_index:
+    path: /{clinicNameUrl}/medicalhistory
+    defaults: { _controller: AppBundle:MedicalHistory:medicalHistoryList }
+# ROUTING PARA LISTAR LAS HISTORIAS CLÍNICAS
+medical_history_list:
+    path: /{clinicNameUrl}/medicalhistory
+    defaults: { _controller: AppBundle:MedicalHistory:medicalHistoryList }
+# ROUTING PARA VER EL CONTENIDO DE UNA HISTORIA CLÍNICA
+medical_history_view:
+    path: /{clinicNameUrl}/medicalhistory/{medicalHistoryNumber}
+    defaults: { _controller: AppBundle:MedicalHistory:medicalHistoryView }
+# ROUTING PARA CREAR UNA NUEVA HISTORIA CLÍNICA
+medical_history_create:
+    path: /{clinicNameUrl}/medicalhistory/create/
+    defaults: { _controller: AppBundle:MedicalHistory:medicalHistoryCreate }
+# ROUTING PARA EDITAR EL CONTENIDO DE UNA HISTORIA CLÍNICA
+medical_history_edit:
+    path: /{clinicNameUrl}/medicalhistory/{medicalHistoryNumber}/edit/
+    defaults: { _controller: AppBundle:MedicalHistory:medicalHistoryEdit }
+# ROUTING PARA VER PDF EL CONTENIDO DE UNA HISTORIA CLÍNICA
+medical_history_pdf:
+    path: /{clinicNameUrl}/medicalhistory/{medicalHistoryNumber}/pdf/
+    defaults: { _controller: AppBundle:MedicalHistory:medicalHistoryPdf } 
+# MÉTODO AJAX PARA BUSCAR COINCIDENCIAS HISTORIA CLÍNICA
+medical_history_search:
+    path: /searchmedicalhistory
+    defaults: { _controller: AppBundle:MedicalHistory:searchMedicalHistory }
+# MÉTODO AJAX PARA CAMBIAR ESTADO HISTORIA ACTUALIZADA / NO ACTUALIZADA
+change_updated_status_medical_history:
+    path: /changeUpdatedMedicalHistory
+    defaults: { _controller: AppBundle:MedicalHistory:changeUpdatedMedicalHistory }
+# MÉTODO AJAX PARA AÑADIR O ELIMINAR RETRASOS O CITAS ANULADAS
+add_late_medical_history:
+    path: /addLateMedicalHistory
+    defaults: { _controller: AppBundle:MedicalHistory:addLateMedicalHistory } 
+# MÉTODO AJAX PARA AÑADIR O ELIMINAR RETRASOS O CITAS ANULADAS
+remove_late_medical_history:
+    path: /removeLateMedicalHistory
+    defaults: { _controller: AppBundle:MedicalHistory:removeLateMedicalHistory }    

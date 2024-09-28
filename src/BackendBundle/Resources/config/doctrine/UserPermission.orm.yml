@@ -1,0 +1,711 @@
+BackendBundle\Entity\UserPermission:
+    type: entity
+    # repository ######################################################     
+    repositoryClass: BackendBundle\Repository\UserPermissionRepository
+    table: user_permission
+# indexes #############################################################
+    indexes:
+        user:
+            columns:
+                - user
+# /indexes ############################################################ 
+# uniqueConstraints####################################################
+    uniqueConstraints:
+        user_2:
+            columns:
+                - user
+# /uniqueConstraints###################################################               
+# id ##################################################################
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+# /id #################################################################
+# fields ##############################################################                
+    fields:
+    # USER ############################################################
+        userList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: user_list
+        userView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: user_view
+        userCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: user_create
+        userEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: user_edit
+        userRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: user_remove
+        userDumpView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: user_dump_view
+        userPermission:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: user_permission
+        clinicViewOther:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_view_other            
+    # /USER ###########################################################
+    # CLINIC ##########################################################
+        clinicList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_list
+        clinicView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_view
+        clinicCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_create
+        clinicEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_edit
+        clinicRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_remove
+    # /CLINIC #########################################################
+    # CLINICDOC #######################################################
+        clinicDocList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_doc_list
+        clinicDocView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_doc_view
+        clinicDocCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_doc_create
+        clinicDocEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_doc_edit
+        clinicDocRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: clinic_doc_remove
+    # /CLINIC #########################################################
+    # MEDICAL HISTORY #################################################
+        medicalHistoryList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_list
+        medicalHistoryView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_view
+        medicalHistoryCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_create
+        medicalHistoryEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_edit
+        medicalHistoryRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_remove
+        medicalHistoryRegistrationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_registration_date_edit
+        medicalHistoryUserRegistererEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_user_registerer_edit
+        medicalHistoryModificationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_modification_date_edit
+        medicalHistoryUserModifierEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_user_modifier_edit
+    # /MEDICAL HISTORY ################################################
+    # MEDICAL HISTORY DOC #############################################
+        medicalHistoryDocList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_list
+        medicalHistoryDocView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_view
+        medicalHistoryDocCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_create
+        medicalHistoryDocEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_edit
+        medicalHistoryDocRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_remove
+        medicalHistoryDocRegistrationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_registration_date_edit
+        medicalHistoryDocUserRegistererEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_user_registerer_edit
+        medicalHistoryDocModificationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_modification_date_edit
+        medicalHistoryDocUserModifierEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: medical_history_doc_user_modifier_edit
+    # /MEDICAL HISTORY DOC ############################################
+    # ORTHOPODOLOGY HISTORY ###########################################
+        orthopodologyHistoryList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_list
+        orthopodologyHistoryView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_view
+        orthopodologyHistoryCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_create
+        orthopodologyHistoryEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_edit
+        orthopodologyHistoryRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_remove
+        orthopodologyHistoryRegistrationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_registration_date_edit
+        orthopodologyHistoryUserRegistererEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_user_registerer_edit
+        orthopodologyHistoryModificationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_modification_date_edit
+        orthopodologyHistoryUserModifierEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_user_modifier_edit
+    # /ORTHOPODOLOGY HISTORY ##########################################
+    # ORTHOPODOLOGY HISTORY DOC #######################################
+        orthopodologyHistoryDocList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_list
+        orthopodologyHistoryDocView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_view
+        orthopodologyHistoryDocCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_create
+        orthopodologyHistoryDocEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_edit
+        orthopodologyHistoryDocRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_remove
+        orthopodologyHistoryDocRegistrationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_registration_date_edit
+        orthopodologyHistoryDocUserRegistererEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_user_registerer_edit
+        orthopodologyHistoryDocModificationDateEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_modification_date_edit
+        orthopodologyHistoryDocUserModifierEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: orthopodology_history_doc_user_modifier_edit
+    # /ORTHOPODOLOGY HISTORY DOC ######################################
+    # REPORT ##########################################################
+        reportList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: report_list
+        reportView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: report_view            
+        reportCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: report_create            
+        reportEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: report_edit
+        reportRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: report_remove                        
+        reportPdf:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: report_pdf                                    
+    # /REPORT #########################################################
+    # INVOICE ISSUED ##################################################
+        invoiceIssuedList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_issued_list
+        invoiceIssuedView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_issued_view
+        invoiceIssuedCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_issued_create
+        invoiceIssuedEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_issued_edit
+        invoiceIssuedRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_issued_remove
+    # /INVOICE ISSUED #################################################
+    # INVOICE RECEIVED ################################################
+        invoiceReceivedList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_received_list
+        invoiceReceivedView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_received_view
+        invoiceReceivedCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_received_create
+        invoiceReceivedEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_received_edit
+        invoiceReceivedRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: invoice_received_remove
+    # /INVOICE ########################################################    
+    # SERVICE #########################################################
+        serviceList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: service_list
+        serviceView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: service_view
+        serviceCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: service_create
+        serviceEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: service_edit
+        serviceRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: service_remove
+    # /SERVICE ########################################################
+    # SCHEDULE ########################################################
+        scheduleList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: schedule_list
+        scheduleView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: schedule_view
+        scheduleCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: schedule_create
+        scheduleEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: schedule_edit
+        scheduleRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: schedule_remove
+    # /SCHEDULE #######################################################
+    # TRACING #########################################################
+        tracingList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_list
+        tracingView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_view
+        tracingCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_create
+        tracingEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_edit
+        tracingRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_remove
+    # /TRACING ########################################################
+    # TRACING SERVICE #################################################
+        tracingServiceList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_service_list
+        tracingServiceView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_service_view
+        tracingServiceCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_service_create
+        tracingServiceEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_service_edit
+        tracingServiceRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: tracing_service_remove
+    # /TRACING SERVICE ################################################
+    # PAYMENT #########################################################
+        paymentList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: payment_list
+        paymentView:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: payment_view
+        paymentCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: payment_create
+        paymentEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: payment_edit
+        paymentRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: payment_remove
+        paymentChangeCountableState:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: payment_change_countable_state 
+        paymentChangeConsolidatedState:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: payment_change_consolidated_state                                 
+    # /PAYMENT ########################################################
+    # ACCOUNTING ######################################################
+        accountingList:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: accounting_list
+        accountingViewTotal:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: accounting_view_total
+        accountingViewGraphic:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: accounting_view_graphic            
+        accountingCreate:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: accounting_create
+        accountingEdit:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: accounting_edit
+        accountingRemove:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: accounting_remove                                
+    # /ACCOUNTING #####################################################        
+    # ADMIN ###########################################################
+        adminSectionAccess:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: admin_section_access
+        adminGeneralDataAccess:
+            type: boolean
+            nullable: false
+            options:
+                default: '0'
+            column: admin_general_data_access
+    # /ADMIN ##########################################################
+# /fields #############################################################
+# manyToOne ########################################################### 
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+# /manyToOne ##########################################################
+# oneToMany ########################################################### 
+# /oneToMany ##########################################################      
+    lifecycleCallbacks: {  }

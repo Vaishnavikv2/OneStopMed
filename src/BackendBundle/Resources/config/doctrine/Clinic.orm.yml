@@ -1,0 +1,161 @@
+BackendBundle\Entity\Clinic:
+    type: entity
+    # repository ######################################################     
+    repositoryClass: BackendBundle\Repository\ClinicRepository    
+    table: clinic
+# indexes #############################################################    
+    indexes:
+        city:
+            columns:
+                - city
+        user_registerer:
+            columns:
+                - user_registerer
+        user_modifier:
+            columns:
+                - user_modifier
+# /indexes ############################################################ 
+# uniqueConstraints####################################################                 
+    uniqueConstraints:
+        clinic_name:
+            columns:
+                - name
+        name_url:
+            columns:
+                - name_url
+# /uniqueConstraints###################################################               
+# id ################################################################## 
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+# /id #################################################################
+# fields ##############################################################
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 150
+            options:
+                fixed: false
+        nameUrl:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: name_url
+        image:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false                            
+        phone:
+            type: string
+            nullable: true
+            length: 9
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+        noteReport:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        noteInvoice:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false                                
+        registrationDate:
+            type: datetime
+            nullable: false
+            column: registration_date
+        modificationDate:
+            type: datetime
+            nullable: true
+            column: modification_date
+# /fields #############################################################
+# manyToOne ###########################################################            
+    manyToOne:
+        city:
+            targetEntity: AddressCity
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                city:
+                    referencedColumnName: id
+            orphanRemoval: false
+        userRegisterer:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_registerer:
+                    referencedColumnName: id
+            orphanRemoval: false
+        userModifier:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_modifier:
+                    referencedColumnName: id
+            orphanRemoval: false
+# /manyToOne ##########################################################
+# oneToMany ###########################################################               
+    oneToMany:
+        # invoiceIssuedList # no se encuentra dentro de la BD, pero se define en la entidad para listar los elementos
+        invoiceIssuedList:
+            targetEntity: InvoiceIssued
+            mappedBy: clinic
+        # invoiceReceivedList # no se encuentra dentro de la BD, pero se define en la entidad para listar los elementos
+        invoiceReceivedList:
+            targetEntity: InvoiceReceived
+            mappedBy: clinic            
+        # servicesList # no se encuentra dentro de la BD, pero se define en la entidad para listar los elementos
+        servicesList:
+            targetEntity: Service
+            mappedBy: clinic
+        # medicalHistoryList # no se encuentra dentro de la BD, pero se define en la entidad para listar los elementos
+        medicalHistoryList:
+            targetEntity: MedicalHistory
+            # mappedBy # hace referencia a la columna de la tabla # MedicalHistory # dentro de la BD relacionada con la tabla # Clinic #
+            mappedBy: clinic
+        # businessList # no se encuentra dentro de la BD, pero se define en la entidad para listar los elementos
+        businessList:
+            targetEntity: Business
+            # mappedBy # hace referencia a la columna de la tabla # Business # dentro de la BD relacionada con la tabla # Clinic #
+            mappedBy: clinic            
+        # docList # no se encuentra dentro de la BD, pero se define en la entidad para listar los elementos
+        documentsList:
+            targetEntity: Documents
+            # mappedBy # hace referencia a la columna de la tabla # MedicalHistoryDoc # dentro de la BD relacionada con la tabla # MedicalHistory #
+            mappedBy: clinic            
+# /oneToMany ##########################################################               
+    lifecycleCallbacks: {  }

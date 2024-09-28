@@ -1,0 +1,52 @@
+BackendBundle\Entity\AddressCity:
+    type: entity
+    # repository ######################################################        
+    repositoryClass: BackendBundle\Repository\AddressCityRepository
+    table: address_city
+# indexes #############################################################        
+    indexes:
+        province:
+            columns:
+                - province
+# /indexes ############################################################                
+# id ##################################################################                 
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+# /id #################################################################
+# fields ##############################################################                
+    fields:
+        cp:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        city:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+# /fields #############################################################
+# manyToOne ###########################################################                  
+    manyToOne:
+        province:
+            targetEntity: AddressProvince
+#            cascade: {  }
+#            fetch: LAZY
+#            mappedBy: null
+#            inversedBy: null
+            joinColumns:
+                province:
+                    referencedColumnName: id
+#            orphanRemoval: false
+# /manyToOne ##########################################################
+# oneToMany ###########################################################
+# /oneToMany ##########################################################  
+    lifecycleCallbacks: {  }

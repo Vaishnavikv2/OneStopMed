@@ -1,0 +1,69 @@
+BackendBundle\Entity\InvoiceService:
+    type: entity
+    table: invoice_service
+    repositoryClass: BackendBundle\Repository\InvoiceServiceRepository      
+    indexes:
+        type_tax_service:
+            columns:
+                - type_tax_service        
+        tracing_service:
+            columns:
+                - tracing_service
+        invoice_issued:
+            columns:
+                - invoice_issued
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        price:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+    manyToOne:
+        invoiceIssued:
+            targetEntity: InvoiceIssued
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: invoiceServiceList
+            joinColumns:
+                invoice_issued:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tracingService:
+            targetEntity: TracingService
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: invoiceServiceList
+            joinColumns:
+                tracing_service:
+                    referencedColumnName: id
+            orphanRemoval: false
+        typeTaxService:
+            targetEntity: TypeTaxService
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                type_tax_service:
+                    referencedColumnName: id
+            orphanRemoval: false 
+# oneToMany ###########################################################
+# /oneToMany ##########################################################
+    lifecycleCallbacks: {  }

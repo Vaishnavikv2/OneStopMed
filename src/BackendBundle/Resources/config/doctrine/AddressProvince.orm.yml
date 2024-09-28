@@ -1,0 +1,45 @@
+BackendBundle\Entity\AddressProvince:
+    type: entity
+    table: address_province
+# indexes #############################################################       
+    indexes:
+        ccaa:
+            columns:
+                - ccaa
+# /indexes ############################################################                
+# id ##################################################################                 
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+# /id #################################################################
+# fields ##############################################################                 
+    fields:
+        province:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+# /fields #############################################################
+# manyToOne ###########################################################                 
+    manyToOne:
+        ccaa:
+            targetEntity: AddressCcaa
+#            cascade: {  }
+#            fetch: LAZY
+#            mappedBy: null
+#            inversedBy: null
+            joinColumns:
+                ccaa:
+                    referencedColumnName: id
+#            orphanRemoval: false
+# /manyToOne ##########################################################
+# oneToMany ########################################################### 
+# /oneToMany ########################################################## 
+    lifecycleCallbacks: {  }

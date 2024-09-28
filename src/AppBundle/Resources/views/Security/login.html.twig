@@ -1,0 +1,58 @@
+{# EXTENDEMOS LA PLANTILLA 'AppBundle:Layouts:layout.html.twig'...................................................................................... #}
+    {% extends "AppBundle:Layouts:layout.html.twig"%}
+{# ......................................................................................EXTENDEMOS LA PLANTILLA 'AppBundle:Layouts:layout.html.twig' #}
+{% block bodyStart %} 
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+{% endblock %}  
+{% block content %} 
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form action="{{path('login_check')}}" method="POST">
+              <div>
+                <input type="text" id="username" class="form-control" placeholder="Nick de Usuario" name="_username"
+              value="{% if last_username is defined %}{{ last_username }}{% endif %}" required="" />
+              </div>
+              <div>
+                <input type="password" id="password" class="form-control" placeholder="Contraseña de acceso" name="_password" required="" />
+              </div>
+              <div>
+                <input type="submit" value="Entrar" class="btn btn-default submit" />
+                {# Mediante el input Type="hidden" definimos el nombre del "target_path" al que nos
+                queremos dirigir después de enviar el formulario #}
+                <input type="hidden" name="_target_path" value="{{ path('homepage') }}" />
+                <a class="reset_pass" href="#">Olvidaste tu Password?</a>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+
+  {# MOSTRAMOS LOS FLASHBAG...................................................... #}
+    <div class="container">
+      <div id="status" style="position: fixed;bottom: 30px;z-index: 200;right: 10px;">
+        {% for message in app.session.flashbag().get('status') %}
+            <div class="alert alert-{{message['type']}} alert-dismissible fade in"  role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">×</span>
+              </button>
+              {{message['description']}}
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script>
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove();
+      });
+    }, 3000);
+    </script>
+        <div class="clearfix"></div>
+  {# ......................................................MOSTRAMOS LOS FLASHBAG #}
+{% endblock %}  
+{% block footerContent %}{% endblock %}
+
